@@ -2,6 +2,7 @@ import numpy as np
 import pretty_midi as pm
 
 
+
 def transpose_pm(midi:pm.PrettyMIDI) -> pm.PrettyMIDI:
   notes = []
 
@@ -100,3 +101,4 @@ def find_key_str(notes):
   else:
     key_name = keys[np.argmax(min_correlations)]
     return f"{key_name} minor"
+
