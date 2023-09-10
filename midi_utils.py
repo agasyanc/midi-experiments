@@ -50,6 +50,8 @@ def get_vector(notes):
 
     # normalize vector
     vector = np.array(vector, dtype=np.float32)
+    if vector.max() == 0:
+        return vector
     vector = vector-vector.min()
     vector = vector/vector.mean()/12
     return vector
@@ -94,6 +96,8 @@ def get_bars_vectors(bars):
 
         # normalize distribution
         for i in range(12):
+            if len(bar) == 0:
+                break
             empty_vec[i] /= len(bar)
 
         bars_vectors.append(empty_vec)
